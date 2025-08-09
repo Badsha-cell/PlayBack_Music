@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayWise Smart Playlist System</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">PlayWise Smart Playlist System</h1>
+    
+    <!-- Playlist Controls -->
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Playlist Controls</h2>
+      <div class="flex space-x-2">
+        <input id="songInput" type="text" placeholder="Enter song name" class="border rounded p-2 flex-1">
+        <input id="ratingInput" type="number" min="1" max="5" placeholder="Rating (1-5)" class="border rounded p-2 w-24">
+        <input id="genreInput" type="text" placeholder="Genre" class="border rounded p-2 w-32">
+        <button onclick="addSong()" class="bg-blue-500 text-white rounded p-2 hover:bg-blue-600">Add Song</button>
+      </div>
+      <div class="flex space-x-2 mt-2">
+        <button onclick="navigate('next')" class="bg-green-500 text-white rounded p-2 hover:bg-green-600">Next</button>
+        <button onclick="navigate('prev')" class="bg-green-500 text-white rounded p-2 hover:bg-green-600">Previous</button>
+        <button onclick="undoPlayback()" class="bg-red-500 text-white rounded p-2 hover:bg-red-600">Undo Playback</button>
+        <button onclick="searchByRating()" class="bg-purple-500 text-white rounded p-2 hover:bg-purple-600">Search by Rating</button>
+        <button onclick="recommendSongs()" class="bg-yellow-500 text-white rounded p-2 hover:bg-yellow-600">Get Recommendations</button>
+      </div>
+    </div>
+
+    <!-- Playlist Display -->
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">Playlist</h2>
+      <p id="playlist" class="bg-gray-100 p-4 rounded">Playlist: []</p>
+      <p id="currentSong" class="bg-gray-100 p-4 rounded mt-2">Current Song: None</p>
+      <p id="history" class="bg-gray-100 p-4 rounded mt-2">Playback History: []</p>
+      <p id="ratingSearch" class="bg-gray-100 p-4 rounded mt-2">Rating Search: []</p>
+      <p id="recommendations" class="bg-gray-100 p-4 rounded mt-2">Recommendations: []</p>
+    </div>
+
+    <!-- Visualization Canvas -->
+    <div id="canvas-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+}
+
+#canvas-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+canvas {
+  border: 1px solid #1d4ed8;
+}
+
+.song-node {
+  fill: #4a90e2;
+  stroke: #1d4ed8;
+  stroke-width: 2;
+}
+
+.song-text {
+  fill: white;
+  font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .flex.space-x-2 {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  input, button {
+    width: 100%;
+  }
+}
